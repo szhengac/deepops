@@ -20,6 +20,7 @@
         - ansible_local['gpus']['count']
         - is_dgx.stat.exists == False
         - cuda_playbook_install_driver|default(true)
+        - slurm_cluster_install_nvidia_driver|default(true)
       tags:
       - nvidia_driver
 

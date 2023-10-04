@@ -123,14 +123,20 @@
 # Install Singularity
 - include: container/singularity.yml
   when: slurm_cluster_install_singularity|default(true)
+  tags:
+    - singularity
 
 # Install Open OnDemand
 - include: slurm-cluster/open-ondemand.yml
   when: install_open_ondemand
+  tags:
+    - ondemand
 
 # Set Permissions to adjust GPU Clocks speeds
 - include: utilities/gpu-clocks.yml
   when: allow_user_set_gpu_clocks
+  tags:
+    - clocks
 
 # Install Enroot and Pyxis
 - include: container/pyxis.yml

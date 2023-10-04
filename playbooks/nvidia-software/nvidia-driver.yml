@@ -17,7 +17,7 @@
     - name: install nvidia driver
       include_role:
         name: nvidia.nvidia_driver
-      when: (ansible_local['gpus']['count'] and is_dgx.stat.exists == False) or (nvidia_driver_force_install|default(false))
+      when: ((ansible_local['gpus']['count'] and is_dgx.stat.exists == False) or (nvidia_driver_force_install|default(false))) and slurm_cluster_install_nvidia_driver|default(true)
 
     - name: test nvidia-smi
       command: nvidia-smi

@@ -22,4 +22,5 @@
       when:
         - ansible_local['gpus']['count'] and (ansible_distribution == "Ubuntu" or ansible_os_family == "RedHat")
         - docker_install | default('yes')
+        - slurm_cluster_install_nvidia_driver | default('yes')
   environment: "{{ proxy_env if proxy_env is defined else {} }}"
