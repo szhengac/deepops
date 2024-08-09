@@ -71,6 +71,8 @@
 
 # Install Slurm
 - include: slurm-cluster/slurm.yml
+  tags:
+    - slurm
 
 # Install OpenMPI
 - include: slurm-cluster/openmpi.yml
